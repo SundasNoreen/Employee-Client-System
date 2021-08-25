@@ -1,0 +1,60 @@
+<style>
+.form-header
+{
+margin-top:30px;}
+   .form-header h3
+   {
+   margin-top: 15px;  text-align: center; margin-bottom: 15px;
+   }
+   .form-header label
+   {
+   margin-top: 10px; margin-bottom: 10px; text-align: center;
+   }
+   .category {
+   width:100%;
+   margin-bottom: 15px;
+   height: 30px;
+   }
+   .wrap{
+   width: 600px; margin: 0 auto; border: 3px solid grey; padding: 2rem; background:#F8F8FF;
+   }
+   @media only screen and (max-width: 767px) {
+   .wrap{
+   width:300px;
+   border: 2px solid grey;
+   padding: 1rem;}
+   }
+   .wrap p{
+   margin-top: 5px;
+   color: black;
+   text-align: center;
+   }
+</style>
+{% extends "layout.html" %}
+{% block body %}
+<section class="features-boxed">
+  <div class="container">
+                   <div class="intro">
+                            <h2 class="text-center">Pay {{val}} Pending Balance</h2>
+                        </div>
+   </div>
+   <div class="form-header">
+      <form action = "" class="wrap"  method = "post">
+         <label>Name</label><br>
+<input type="text" class="form-control" name="name" id="name"  value="{{ name }}" disabled />
+          <label>Pending Amount</label><br>
+<input type="number" class="form-control" name="bal" id="bal"  value="{{ bal }}" disabled/>
+          <label>Amount Paid</label><br>
+<input type="number" class="form-control" name="paying" id="no"  value="{{ request.form.paying }}" required/>
+
+         <br>
+          <button class="btn btn-primary d-block w-100" style="background-color: darkseagreen; margin-bottom: 10px;" type="submit">Pay</button>
+         {% if error %}
+         <p class="error">
+            <strong>
+         <center> {{ error }}</center></strong>
+         {% endif %}
+      </form>
+   </div>
+</section>
+{% endblock %}
